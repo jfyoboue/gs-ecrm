@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Clients{% endblock %}
+{% block head %}
+    {{ parent() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block body %}
+    <h1>Clients</h1>
+    <p class="important">
+        Liste des clients
+    </p>
+    <a href="{{ path('new_customer') }}">Créer un nouveau client</a>
+    <table>
+      <tr>
+        <th>Nom</th>
+        <th>Adresse</th>
+        <th>Site web</th>
+      </tr>
+
+      {% for customer in customers %}
+        <tr>
+          <td>{{ customer.name }}</td>
+          <td>{{ customer.address }}</td>
+          <td>{{ customer.website }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

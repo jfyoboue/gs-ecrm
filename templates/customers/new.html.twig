@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Nouveau client{% endblock %}
+{% block head %}
+    {{ parent() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block body %}
+    <h1>Clients</h1>
+    <p class="important">
+        Nouveau client
+    </p>
+    <p>
+      <form action="{{ path('create_customer') }}" method="post">
+        <label for="name">Nom:</label><br>
+        <input type="text" id="name" name="name"><br/>
+        <label for="address">Adresse:</label><br>
+        <input type="text" id="address" name="address"><br/>
+        <label for="website">Site web:</label><br>
+        <input type="text" id="website" name="website"><br/><br/>
+        <input type="submit" value="Valider">
+      </form>
+    </p>
+{% endblock %}
